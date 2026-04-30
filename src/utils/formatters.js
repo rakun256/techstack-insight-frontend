@@ -43,6 +43,30 @@ export function formatDate(date) {
   }).format(parsedDate);
 }
 
+export function formatDateTime(date) {
+  if (!date) {
+    return "Not specified";
+  }
+
+  const parsedDate = new Date(date);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return date;
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(parsedDate);
+}
+
+export function normalizeSearchText(value) {
+  return compactText(value, "").trim().toLowerCase();
+}
+
 export function formatRoleLabel(value) {
   return compactText(value)
     .toLowerCase()
