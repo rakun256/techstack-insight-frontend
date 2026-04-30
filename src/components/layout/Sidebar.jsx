@@ -62,32 +62,43 @@ export default function Sidebar({ isMobileOpen = false, onClose }) {
         <SidebarNav />
       </aside>
 
-      {isMobileOpen && (
-        <div className="md:hidden">
-          <button
-            type="button"
-            aria-label="Close navigation"
-            onClick={onClose}
-            className="fixed inset-0 z-40 bg-slate-900/40"
-          />
+      <div
+        className={[
+          "md:hidden",
+          isMobileOpen ? "pointer-events-auto" : "pointer-events-none",
+        ].join(" ")}
+      >
+        <button
+          type="button"
+          aria-label="Close navigation"
+          onClick={onClose}
+          className={[
+            "fixed inset-0 z-40 bg-slate-900/40 transition-opacity duration-200 ease-out",
+            isMobileOpen ? "opacity-100" : "opacity-0",
+          ].join(" ")}
+        />
 
-          <aside className="fixed inset-y-0 left-0 z-50 w-72 border-r border-[#cdeee4] bg-white p-4 shadow-xl">
-            <div className="mb-8 flex items-start justify-between gap-3">
-              <SidebarBrand />
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="Close navigation"
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#cdeee4] bg-white text-[#114444] transition hover:bg-[#e8fff4]"
-              >
-                <X size={20} />
-              </button>
-            </div>
+        <aside
+          className={[
+            "fixed inset-y-0 left-0 z-50 w-72 border-r border-[#cdeee4] bg-white p-4 shadow-xl transition-transform duration-300 ease-out",
+            isMobileOpen ? "translate-x-0" : "-translate-x-full",
+          ].join(" ")}
+        >
+          <div className="mb-8 flex items-start justify-between gap-3">
+            <SidebarBrand />
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close navigation"
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#cdeee4] bg-white text-[#114444] transition hover:bg-[#e8fff4]"
+            >
+              <X size={20} />
+            </button>
+          </div>
 
-            <SidebarNav onNavigate={onClose} />
-          </aside>
-        </div>
-      )}
+          <SidebarNav onNavigate={onClose} />
+        </aside>
+      </div>
     </>
   );
 }
