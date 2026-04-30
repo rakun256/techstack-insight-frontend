@@ -100,7 +100,13 @@ export default function Skills() {
   }
 
   if (loading) {
-    return <LoadingState message="Loading skills..." />;
+    return (
+      <LoadingState
+        variant="skills"
+        title="Building the skill catalog"
+        message="Collecting canonical technologies extracted from software job descriptions."
+      />
+    );
   }
 
   if (error) {

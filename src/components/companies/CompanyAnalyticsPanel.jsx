@@ -53,7 +53,14 @@ export default function CompanyAnalyticsPanel({
   }
 
   if (loading) {
-    return <LoadingState message="Loading company analytics..." />;
+    return (
+      <LoadingState
+        compact
+        variant="companies"
+        title="Analyzing company demand patterns"
+        message="Comparing skills, role families, and work mode signals for this company."
+      />
+    );
   }
 
   if (error) {

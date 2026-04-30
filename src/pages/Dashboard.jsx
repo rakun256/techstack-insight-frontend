@@ -71,7 +71,13 @@ export default function Dashboard() {
   }, [analytics]);
 
   if (loading) {
-    return <LoadingState message="Loading dashboard analytics..." />;
+    return (
+      <LoadingState
+        variant="dashboard"
+        title="Preparing your market intelligence"
+        message="Aggregating technology demand, role trends, work modes, and location signals."
+      />
+    );
   }
 
   if (error) {

@@ -147,7 +147,13 @@ export default function Companies() {
   }
 
   if (loadingCompanies) {
-    return <LoadingState message="Loading companies..." />;
+    return (
+      <LoadingState
+        variant="companies"
+        title="Analyzing company demand patterns"
+        message="Comparing skills, role families, and work mode signals across companies."
+      />
+    );
   }
 
   if (companiesError) {

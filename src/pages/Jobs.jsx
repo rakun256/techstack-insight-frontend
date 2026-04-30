@@ -125,7 +125,12 @@ export default function Jobs() {
       ) : (
         <>
           {loading ? (
-            <LoadingState message="Loading jobs..." />
+            <LoadingState
+              compact
+              variant="jobs"
+              title="Scanning normalized job postings"
+              message="Finding relevant roles across sources, skills, locations, and work modes."
+            />
           ) : (
             <JobList jobs={jobs} />
           )}

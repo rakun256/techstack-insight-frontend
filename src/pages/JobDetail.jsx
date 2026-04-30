@@ -81,7 +81,13 @@ export default function JobDetail() {
   }, [id]);
 
   if (loading) {
-    return <LoadingState message="Loading job detail..." />;
+    return (
+      <LoadingState
+        variant="detail"
+        title="Opening the job intelligence card"
+        message="Loading role metadata, source details, and the original posting description."
+      />
+    );
   }
 
   if (error) {
