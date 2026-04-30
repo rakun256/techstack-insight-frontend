@@ -6,6 +6,25 @@ export function compactText(value, fallback = "Not specified") {
   return String(value);
 }
 
+export function cleanDescriptionText(value) {
+  if (!value) {
+    return "";
+  }
+
+  return String(value)
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#160;/g, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 export function formatDate(date) {
   if (!date) {
     return "Not specified";

@@ -6,6 +6,7 @@ import EmptyState from "../components/ui/EmptyState";
 import ErrorState from "../components/ui/ErrorState";
 import LoadingState from "../components/ui/LoadingState";
 import {
+  cleanDescriptionText,
   compactText,
   formatDate,
   formatRoleLabel,
@@ -97,6 +98,7 @@ export default function JobDetail() {
   }
 
   const location = job.locationNormalized || job.location;
+  const description = cleanDescriptionText(job.description);
 
   return (
     <div className="space-y-6">
@@ -148,11 +150,29 @@ export default function JobDetail() {
           </Badge>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 border-t border-slate-100 pt-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-4 border-t border-slate-100 pt-6 sm:grid-cols-2">
           <DetailItem label="Posted" value={formatDate(job.postedAt)} />
           <DetailItem label="Normalized title" value={compactText(job.normalizedTitle)} />
-          <DetailItem label="External ID" value={compactText(job.externalId)} />
-          <DetailItem label="Company ID" value={compactText(job.companyId)} />
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="mb-4">
+          <h2 className="text-base font-semibold text-slate-900">
+            Source Metadata
+          </h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Technical identifiers from the original source integration.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+            <DetailItem label="External ID" value={compactText(job.externalId)} />
+          </div>
+          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+            <DetailItem label="Company ID" value={compactText(job.companyId)} />
+          </div>
         </div>
       </section>
 
@@ -166,9 +186,9 @@ export default function JobDetail() {
           </p>
         </div>
 
-        {job.description ? (
+        {description ? (
           <div className="whitespace-pre-line text-sm leading-7 text-slate-700">
-            {job.description}
+            {description}
           </div>
         ) : (
           <EmptyState message="No description is available for this job." />
