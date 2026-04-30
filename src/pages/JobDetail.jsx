@@ -17,10 +17,10 @@ import {
 function Badge({ children, tone = "slate" }) {
   const tones = {
     slate: "border-slate-200 bg-slate-50 text-slate-700",
-    blue: "border-blue-200 bg-blue-50 text-blue-700",
-    green: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    blue: "border-[#cdeee4] bg-[#e8fff4] text-[#114444]",
+    green: "border-[#cdeee4] bg-[#e8fff4] text-[#114444]",
     amber: "border-amber-200 bg-amber-50 text-amber-700",
-    purple: "border-purple-200 bg-purple-50 text-purple-700",
+    purple: "border-[#cdeee4] bg-white text-[#114444]",
   };
 
   return (
@@ -109,10 +109,10 @@ export default function JobDetail() {
         ← Back to Jobs
       </Link>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0">
-            <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+            <h1 className="text-3xl font-bold tracking-tight text-slate-950">
               {compactText(job.title, "Untitled job")}
             </h1>
             <p className="mt-2 text-base font-medium text-slate-600">
@@ -130,7 +130,7 @@ export default function JobDetail() {
               href={job.applyUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
+              className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-[#114444] px-4 py-2 text-sm font-medium text-[#bbeedd] shadow-sm transition hover:bg-[#0d3636]"
             >
               Apply Now
               <ExternalLink size={15} />
@@ -156,9 +156,9 @@ export default function JobDetail() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-6 shadow-sm">
         <div className="mb-4">
-          <h2 className="text-base font-semibold text-slate-900">
+          <h2 className="text-base font-semibold text-slate-950">
             Source Metadata
           </h2>
           <p className="mt-1 text-sm text-slate-500">
@@ -167,18 +167,18 @@ export default function JobDetail() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+          <div className="rounded-xl border border-[#cdeee4] bg-[#f7fffb] p-4">
             <DetailItem label="External ID" value={compactText(job.externalId)} />
           </div>
-          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+          <div className="rounded-xl border border-[#cdeee4] bg-[#f7fffb] p-4">
             <DetailItem label="Company ID" value={compactText(job.companyId)} />
           </div>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-6 shadow-sm">
         <div className="mb-4">
-          <h2 className="text-base font-semibold text-slate-900">
+          <h2 className="text-base font-semibold text-slate-950">
             Description
           </h2>
           <p className="mt-1 text-sm text-slate-500">

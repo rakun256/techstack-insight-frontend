@@ -82,7 +82,7 @@ export default function Dashboard() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-950">
             Dashboard
           </h1>
           <p className="mt-1 text-sm text-slate-500">
@@ -90,7 +90,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="inline-flex w-fit rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
+        <div className="inline-flex w-fit rounded-2xl border border-[#cdeee4] bg-white p-1 shadow-sm">
           {DAY_FILTERS.map((option) => {
             const isActive = option === days;
 
@@ -102,8 +102,8 @@ export default function Dashboard() {
                 className={[
                   "rounded-xl px-3 py-2 text-sm font-medium transition",
                   isActive
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                    ? "bg-[#114444] text-[#bbeedd] shadow-sm"
+                    : "text-slate-600 hover:bg-[#e8fff4] hover:text-[#114444]",
                 ].join(" ")}
               >
                 {option} days
@@ -141,19 +141,19 @@ export default function Dashboard() {
           title="Most In-Demand Technologies"
           description="Most requested skills by job count."
           data={dashboardData.topSkills}
-          barColor="#2563eb"
+          barColor="#114444"
         />
         <BarChartCard
           title="Top Job Locations"
           description="Job distribution across locations."
           data={dashboardData.locations}
-          barColor="#0f766e"
+          barColor="#167070"
         />
         <BarChartCard
           title="Role Demand by Family"
           description={`Aggregated demand by role family over the last ${days} days.`}
           data={dashboardData.roleFamilies}
-          barColor="#7c3aed"
+          barColor="#6b4bd8"
           layout="horizontal"
         />
         <PieChartCard
@@ -163,9 +163,9 @@ export default function Dashboard() {
         />
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
         <div className="mb-5">
-          <h3 className="text-base font-semibold text-slate-900">
+          <h3 className="text-base font-semibold text-slate-950">
             Top Skills in Last {days} Days
           </h3>
           <p className="mt-1 text-sm text-slate-500">
@@ -174,9 +174,9 @@ export default function Dashboard() {
         </div>
 
         {dashboardData.trendingSkills.length > 0 ? (
-          <div className="overflow-hidden rounded-2xl border border-slate-200">
+          <div className="overflow-hidden rounded-2xl border border-[#cdeee4]">
             <table className="min-w-full divide-y divide-slate-200 text-sm">
-              <thead className="bg-slate-50">
+              <thead className="bg-[#f1fff8]">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold text-slate-600">
                     Skill

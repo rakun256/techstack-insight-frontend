@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --brand-dark: #114444;
+  --brand-dark-hover: #0d3636;
+  --brand-mint: #bbeedd;
+  --brand-soft: #e8fff4;
+  --brand-surface: #f7fffb;
+  --brand-border: #cdeee4;
+}
+
 html, body, #root {
   min-height: 100%;
 }
@@ -7,4 +16,5 @@ html, body, #root {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-surface);
 }

@@ -11,10 +11,10 @@ import {
 function Badge({ children, tone = "slate" }) {
   const tones = {
     slate: "border-slate-200 bg-slate-50 text-slate-700",
-    blue: "border-blue-200 bg-blue-50 text-blue-700",
-    green: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    blue: "border-[#cdeee4] bg-[#e8fff4] text-[#114444]",
+    green: "border-[#cdeee4] bg-[#e8fff4] text-[#114444]",
     amber: "border-amber-200 bg-amber-50 text-amber-700",
-    purple: "border-purple-200 bg-purple-50 text-purple-700",
+    purple: "border-[#cdeee4] bg-white text-[#114444]",
   };
 
   return (
@@ -31,10 +31,10 @@ export default function JobCard({ job }) {
   const detailsPath = `/jobs/${job.id}`;
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow">
+    <article className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm transition hover:border-[#114444]/30 hover:shadow-md">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <Link to={detailsPath} className="min-w-0 flex-1">
-          <h3 className="text-lg font-semibold text-slate-900 transition hover:text-slate-700">
+          <h3 className="text-lg font-semibold text-slate-950 transition hover:text-[#114444]">
             {compactText(job.title, "Untitled job")}
           </h3>
           <p className="mt-1 text-sm font-medium text-slate-600">
@@ -74,7 +74,7 @@ export default function JobCard({ job }) {
         <div className="flex flex-col gap-2 sm:flex-row">
           <Link
             to={detailsPath}
-            className="rounded-xl border border-slate-200 px-4 py-2 text-center text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+            className="rounded-xl border border-[#cdeee4] px-4 py-2 text-center text-sm font-medium text-[#114444] transition hover:bg-[#e8fff4]"
           >
             View Details
           </Link>
@@ -83,7 +83,7 @@ export default function JobCard({ job }) {
               href={job.applyUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#114444] px-4 py-2 text-sm font-medium text-[#bbeedd] shadow-sm transition hover:bg-[#0d3636]"
             >
               Apply
               <ExternalLink size={15} />

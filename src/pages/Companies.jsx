@@ -157,7 +157,7 @@ export default function Companies() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-950">
           Companies
         </h1>
         <p className="mt-1 text-sm text-slate-500">
@@ -173,9 +173,9 @@ export default function Companies() {
         />
       ) : (
         <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
             <div className="mb-5">
-              <h2 className="text-base font-semibold text-slate-900">
+              <h2 className="text-base font-semibold text-slate-950">
                 Single Company Analysis
               </h2>
               <p className="mt-1 text-sm text-slate-500">

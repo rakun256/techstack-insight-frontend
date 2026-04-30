@@ -10,9 +10,9 @@ function WorkModeCards({ data = [] }) {
   }
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h3 className="text-base font-semibold text-slate-900">
+        <h3 className="text-base font-semibold text-slate-950">
           Company Work Mode Distribution
         </h3>
         <p className="mt-1 text-sm text-slate-500">
@@ -24,10 +24,10 @@ function WorkModeCards({ data = [] }) {
         {data.map((item) => (
           <div
             key={item.name}
-            className="rounded-xl border border-slate-100 bg-slate-50 p-4"
+            className="rounded-xl border border-[#cdeee4] bg-[#f7fffb] p-4"
           >
             <p className="text-sm font-medium text-slate-600">{item.name}</p>
-            <p className="mt-2 text-2xl font-semibold text-slate-900">
+            <p className="mt-2 text-2xl font-bold text-slate-950">
               {item.count}
             </p>
           </div>
@@ -73,13 +73,13 @@ export default function CompanyAnalyticsPanel({
           title="Company Top Skills"
           description="Most requested technologies for this company."
           data={analytics.topSkills}
-          barColor="#2563eb"
+          barColor="#114444"
         />
         <BarChartCard
           title="Company Role Distribution"
           description="Demand grouped by role family."
           data={analytics.roleDistribution}
-          barColor="#7c3aed"
+          barColor="#6b4bd8"
           layout="horizontal"
         />
       </section>

@@ -23,7 +23,7 @@ function Field({ label, children }) {
 }
 
 const inputClass =
-  "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-100";
+  "w-full rounded-xl border border-[#cdeee4] bg-white px-3 py-2 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#114444] focus:ring-2 focus:ring-[#114444]/20";
 
 export default function JobFilters({
   filters,
@@ -40,9 +40,9 @@ export default function JobFilters({
   }
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h2 className="text-base font-semibold text-slate-900">Filters</h2>
+        <h2 className="text-base font-semibold text-slate-950">Filters</h2>
         <p className="mt-1 text-sm text-slate-500">
           Narrow results by role, skill, source, country, and work mode.
         </p>
@@ -154,7 +154,7 @@ export default function JobFilters({
           type="button"
           onClick={onClear}
           disabled={loading}
-          className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-xl border border-[#cdeee4] bg-white px-4 py-2 text-sm font-medium text-[#114444] transition hover:bg-[#e8fff4] disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500"
         >
           Clear Filters
         </button>
@@ -162,7 +162,7 @@ export default function JobFilters({
           type="button"
           onClick={onApply}
           disabled={loading}
-          className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-xl bg-[#114444] px-4 py-2 text-sm font-medium text-[#bbeedd] shadow-sm transition hover:bg-[#0d3636] disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500"
         >
           Apply Filters
         </button>

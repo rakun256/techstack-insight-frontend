@@ -7,7 +7,7 @@ import {
 } from "recharts";
 import EmptyState from "../ui/EmptyState";
 
-const DEFAULT_COLORS = ["#2563eb", "#0f766e", "#ea580c", "#7c3aed", "#475569"];
+const DEFAULT_COLORS = ["#114444", "#5dd39e", "#bbeedd", "#167070", "#8b5cf6"];
 
 function DonutTooltip({ active, payload }) {
   if (!active || !payload?.length) {
@@ -17,8 +17,8 @@ function DonutTooltip({ active, payload }) {
   const item = payload[0]?.payload;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm">
-      <p className="font-medium text-slate-900">{item?.fullName || item?.name}</p>
+    <div className="rounded-xl border border-[#cdeee4] bg-white px-3 py-2 text-sm shadow-sm">
+      <p className="font-medium text-slate-950">{item?.fullName || item?.name}</p>
       <p className="mt-1 text-slate-500">Job count: {item?.count}</p>
     </div>
   );
@@ -36,9 +36,9 @@ export default function PieChartCard({
     : 0;
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-base font-semibold text-slate-950">{title}</h3>
         {description && (
           <p className="mt-1 text-sm text-slate-500">{description}</p>
         )}
@@ -71,7 +71,7 @@ export default function PieChartCard({
             </ResponsiveContainer>
 
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-3xl font-semibold text-slate-900">
+              <span className="text-3xl font-bold text-slate-950">
                 {total}
               </span>
               <span className="text-xs font-medium uppercase tracking-wide text-slate-500">

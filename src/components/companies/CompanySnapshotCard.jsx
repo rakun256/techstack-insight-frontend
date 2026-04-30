@@ -24,7 +24,7 @@ function CompactList({ title, items = [] }) {
 
   return (
     <div>
-      <h4 className="text-sm font-semibold text-slate-900">{title}</h4>
+      <h4 className="text-sm font-semibold text-slate-950">{title}</h4>
       {items.length > 0 ? (
         <div className="mt-3 space-y-3">
           {items.map((item) => {
@@ -40,8 +40,8 @@ function CompactList({ title, items = [] }) {
                     {item.count}
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-                  <div className="h-full rounded-full bg-slate-900" style={{ width }} />
+                <div className="h-2 overflow-hidden rounded-full bg-[#e8fff4]">
+                  <div className="h-full rounded-full bg-[#114444]" style={{ width }} />
                 </div>
               </div>
             );
@@ -70,9 +70,9 @@ export default function CompanySnapshotCard({ company }) {
   );
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <article className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h3 className="mt-1 text-lg font-semibold text-slate-900">
+        <h3 className="mt-1 text-lg font-semibold text-slate-950">
           {company?.companyName || "Unknown company"}
         </h3>
         <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">

@@ -6,9 +6,9 @@ export default function TopSkillsPanel({ skills = [] }) {
   }, 0);
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h2 className="text-base font-semibold text-slate-900">
+        <h2 className="text-base font-semibold text-slate-950">
           Most Requested Skills
         </h2>
         <p className="mt-1 text-sm text-slate-500">
@@ -32,9 +32,9 @@ export default function TopSkillsPanel({ skills = [] }) {
                     {count}
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+                <div className="h-2 overflow-hidden rounded-full bg-[#e8fff4]">
                   <div
-                    className="h-full rounded-full bg-slate-900"
+                    className="h-full rounded-full bg-[#114444]"
                     style={{ width }}
                   />
                 </div>

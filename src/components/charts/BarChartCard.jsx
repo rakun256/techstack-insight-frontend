@@ -20,8 +20,8 @@ function ChartTooltip({ active, payload, label }) {
   const count = payload[0]?.value;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm">
-      <p className="font-medium text-slate-900">{labelText}</p>
+    <div className="rounded-xl border border-[#cdeee4] bg-white px-3 py-2 text-sm shadow-sm">
+      <p className="font-medium text-slate-950">{labelText}</p>
       <p className="mt-1 text-slate-500">Job count: {count}</p>
     </div>
   );
@@ -31,16 +31,16 @@ export default function BarChartCard({
   title,
   description,
   data = [],
-  barColor = "#0f172a",
+  barColor = "#114444",
   layout = "vertical",
 }) {
   const hasData = Array.isArray(data) && data.length > 0;
   const isHorizontal = layout === "horizontal";
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-[#cdeee4]/70 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-base font-semibold text-slate-950">{title}</h3>
         {description && (
           <p className="mt-1 text-sm text-slate-500">{description}</p>
         )}
@@ -61,7 +61,7 @@ export default function BarChartCard({
               <CartesianGrid
                 strokeDasharray="3 3"
                 vertical={isHorizontal}
-                stroke="#e2e8f0"
+                stroke="#cdeee4"
               />
 
               {isHorizontal ? (

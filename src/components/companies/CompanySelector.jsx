@@ -10,7 +10,7 @@ export default function CompanySelector({
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-100"
+        className="w-full rounded-xl border border-[#cdeee4] bg-white px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-[#114444] focus:ring-2 focus:ring-[#114444]/20"
       >
         <option value="">Choose a company</option>
         {companies.map((company) => (
