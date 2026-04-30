@@ -1,5 +1,6 @@
 import EmptyState from "../ui/EmptyState";
 import {
+  formatCompanyId,
   formatRoleLabel,
   formatWorkMode,
 } from "../../utils/companyMappers";
@@ -14,7 +15,8 @@ function normalizeItems(items = [], nameKey, formatter) {
       name: formatter ? formatter(item?.[nameKey]) : item?.[nameKey] || "Unknown",
       count: Number(item?.jobCount ?? 0),
     }))
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
 }
 
 function CompactList({ title, items = [] }) {
@@ -70,10 +72,12 @@ export default function CompanySnapshotCard({ company }) {
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="mb-5">
-        <p className="text-sm text-slate-500">{company?.companyId}</p>
         <h3 className="mt-1 text-lg font-semibold text-slate-900">
           {company?.companyName || "Unknown company"}
         </h3>
+        <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">
+          ID {formatCompanyId(company?.companyId)}
+        </p>
       </div>
 
       <div className="space-y-6">

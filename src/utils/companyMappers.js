@@ -6,6 +6,8 @@ function titleCase(value) {
     .join(" ");
 }
 
+const WORK_MODES = ["REMOTE", "HYBRID", "ONSITE_OR_UNSPECIFIED"];
+
 export function extractCompaniesFromJobs(jobs) {
   if (!Array.isArray(jobs)) {
     return [];
@@ -29,6 +31,20 @@ export function extractCompaniesFromJobs(jobs) {
   return Object.values(companies).sort((a, b) => {
     return a.companyName.localeCompare(b.companyName);
   });
+}
+
+export function formatCompanyId(value) {
+  if (!value) {
+    return "No ID";
+  }
+
+  const id = String(value);
+
+  if (id.length <= 12) {
+    return id;
+  }
+
+  return `${id.slice(0, 8)}...${id.slice(-4)}`;
 }
 
 export function formatWorkMode(value) {
@@ -87,21 +103,23 @@ export function mapCompanyRoleDistribution(data) {
 }
 
 export function mapCompanyWorkModeDistribution(data) {
-  if (!Array.isArray(data)) {
-    return [];
-  }
+  const countsByMode = Array.isArray(data)
+    ? data.reduce((acc, item) => {
+        const key = item?.workMode || "ONSITE_OR_UNSPECIFIED";
+        acc[key] = (acc[key] || 0) + Number(item?.jobCount ?? 0);
+        return acc;
+      }, {})
+    : {};
 
-  return data
-    .map((item) => {
-      const name = formatWorkMode(item.workMode);
+  return WORK_MODES.map((workMode) => {
+    const name = formatWorkMode(workMode);
 
-      return {
-        name,
-        fullName: name,
-        count: Number(item.jobCount ?? 0),
-      };
-    })
-    .sort((a, b) => b.count - a.count);
+    return {
+      name,
+      fullName: name,
+      count: countsByMode[workMode] || 0,
+    };
+  });
 }
 
 export function getTopItem(data, nameKey = "name", countKey = "count") {
